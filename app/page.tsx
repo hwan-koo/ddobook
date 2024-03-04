@@ -3,11 +3,23 @@ import Image from "next/image";
 import yellowBlueCircle from "./components/yellowBlueCircle";
 import mainDescriptive from "./components/mainDescriptive";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export default function Home() {
+  const inputRef = useRef<HTMLInputElement>(null);
+  function InputFocus() {
+    if (inputRef.current !== null) {
+      inputRef.current.disabled = false; //input 비활성화 해제
+      inputRef.current.focus();
+    }
+  }
+  const scrollToBottom = () => {
+    const element = document.getElementById("bottomOfPage")!;
+    element.scrollIntoView({ behavior: "smooth" });
+    setTimeout(InputFocus, 1000);
+  };
+
   const [inputValue, setInputValue] = useState("");
-  const slackURL = process.env.NEXT_PUBLIC_SLACK_URL;
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     // 폼 제출 처리
@@ -31,23 +43,27 @@ export default function Home() {
   const mainThirdMessage = `학생들이 만든 스토리를 바탕으로 필수 학습 범위 내의 문제도 출제할 수 있어요`;
   const mainFourthMessage = `한 눈에 들어오는 대시보드로 학습 현황을 관리하고\n학생들과 실시간 피드백을 주고받아 보세요!`;
   const mainFifthMessage = `스토리를 감상하거나 문제를 풀던 중 모르는게 생긴다면?\nAI 튜터에게 물어보세요! 학생들의 학습 데이터를 바탕으로 맞춤 추천 콘텐츠까지 추천해줄거에요`;
+  const contact = `korea9kh@korea.ac.kr\n연락처: 010-2011-8258\n고려대학교 경영본관 2층 일진창업지원센터`;
   return (
     <div>
-      <header>
-        <div className=" bg-white bg-opacity-60 w-full aspect-[100/7] pl-[7%] pr-[7%]  flex justify-between items-center">
-          <Image
-            className="w-[6%] aspect-[100/55]"
-            src="/logo.png"
-            alt=""
-            width={100}
-            height={55}
-          />
-          <div className="bg-[#347CF8] w-[15%] lg:w-[12%] aspect-[200/56]  rounded-3xl items-center justify-center flex">
-            <span className="text-white font-bold text-[8px] sm:text-base md:text-lg lg:text-xl xl:text-2xl">
-              도입 문의
-            </span>
-          </div>
+      <div className=" bg-white/60  w-full aspect-[100/7] pl-[7%] pr-[7%]  flex justify-between items-center sticky top-0 z-50">
+        <Image
+          className="w-[6%] aspect-[100/55]"
+          src="/logo.png"
+          alt=""
+          width={100}
+          height={55}
+        />
+        <div
+          className="bg-[#347CF8] w-[15%] lg:w-[12%] aspect-[200/56]  rounded-3xl items-center justify-center flex "
+          onClick={scrollToBottom}
+        >
+          <span className="text-white font-bold text-[8px] sm:text-base md:text-lg lg:text-xl xl:text-2xl">
+            도입 문의
+          </span>
         </div>
+      </div>
+      <header>
         <div className="relative">
           <Image
             className="w-full "
@@ -158,6 +174,7 @@ export default function Home() {
             {"이메일을 남겨주시면 또북 컨설턴트가 빠르게 답쟁해드릴게요 :)"}
           </p>
           <form
+            id="bottomOfPage"
             onSubmit={handleSubmit}
             className="w-full flex justify-center items-center mt-6 sm:mt-10 flex-col"
           >
@@ -168,14 +185,18 @@ export default function Home() {
               className="w-[41.6%] aspect-[100/10] rounded-3xl border-2 border-[#6BA1FF] pl-[3.75%] placeholder:text-[8px] sm:placeholder:text-sm md:placeholder:text-base lg:placeholder:text-lg xl:placeholder:text-xl 2xl:placeholder:text-2xl text-[8px] sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
+              ref={inputRef}
             ></input>
             <button
               type="submit"
-              className="mt-6 sm:mt-10 w-[12.5%] aspect-[3/1] bg-[#347CF8] text-white font-bold text-[8px] sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl rounded-[40px]"
+              className="mt-4 sm:mt-10 w-[12.5%] aspect-[3/1] bg-[#347CF8] text-white font-bold text-[8px] sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl rounded-[40px]"
             >
               도입 문의
             </button>
           </form>
+          <p className="mt-10 mb-4 text-[8px] sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl  whitespace-pre text-center text-gray-400">
+            {contact}
+          </p>
         </div>
       </main>
     </div>
