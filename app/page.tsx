@@ -43,7 +43,7 @@ export default function Home() {
   const mainThirdMessage = `학생들이 만든 스토리를 바탕으로 필수 학습 범위 내의 문제도 출제할 수 있어요`;
   const mainFourthMessage = `한 눈에 들어오는 대시보드로 학습 현황을 관리하고\n학생들과 실시간 피드백을 주고받아 보세요!`;
   const mainFifthMessage = `스토리를 감상하거나 문제를 풀던 중 모르는게 생긴다면?\nAI 튜터에게 물어보세요! 학생들의 학습 데이터를 바탕으로 맞춤 추천 콘텐츠까지 추천해줄거에요`;
-  const contact = `korea9kh@korea.ac.kr\n연락처: 010-2011-8258\n고려대학교 경영본관 2층 일진창업지원센터`;
+  const contact = `korea9kh@korea.ac.kr\n010-2011-8258\n고려대학교 경영본관 2층 일진창업지원센터`;
   return (
     <div>
       <div className=" bg-white/60  w-full aspect-[100/7] pl-[7%] pr-[7%]  flex justify-between items-center sticky top-0 z-50">
@@ -54,14 +54,14 @@ export default function Home() {
           width={100}
           height={55}
         />
-        <div
+        <button
           className="bg-[#347CF8] w-[15%] lg:w-[12%] aspect-[200/56]  rounded-3xl items-center justify-center flex "
           onClick={scrollToBottom}
         >
           <span className="text-white font-bold text-[8px] sm:text-base md:text-lg lg:text-xl xl:text-2xl">
             도입 문의
           </span>
-        </div>
+        </button>
       </div>
       <header>
         <div className="relative">
