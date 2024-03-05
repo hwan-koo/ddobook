@@ -16,7 +16,7 @@ export default function Home() {
   const scrollToBottom = () => {
     const element = document.getElementById("bottomOfPage")!;
     element.scrollIntoView({ behavior: "smooth" });
-    setTimeout(InputFocus, 1000);
+    setTimeout(InputFocus, 1550);
   };
 
   const [inputValue, setInputValue] = useState("");
@@ -46,7 +46,7 @@ export default function Home() {
   const contact = `korea9kh@korea.ac.kr\n010-2011-8258\n고려대학교 경영본관 2층 일진창업지원센터`;
   return (
     <div>
-      <div className=" bg-white/60  w-full aspect-[100/7] pl-[7%] pr-[7%]  flex justify-between items-center sticky top-0 z-50">
+      <div className=" bg-white/60  w-full aspect-[100/7] pl-[7%] pr-[7%]  flex justify-between items-center sticky top-0 z-50 backdrop-blur-xl">
         <Image
           className="w-[6%] aspect-[100/55]"
           src="/logo.png"
@@ -132,7 +132,7 @@ export default function Home() {
               className="w-[90.4%] aspect-[100/73]"
               src="/main3.png"
               alt=""
-              width={1736}
+              width={1735}
               height={1265}
             />
           </div>
@@ -171,7 +171,7 @@ export default function Home() {
             />
           </div>
           <p className="mt-8 sm:mt-12 md:mt-16 lg:mt-20 xl:mt-32 2xl:mt-40 text-[8px] sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl  whitespace-pre text-center">
-            {"이메일을 남겨주시면 또북 컨설턴트가 빠르게 답쟁해드릴게요 :)"}
+            {"이메일을 남겨주시면 또북 컨설턴트가 빠르게 답장해드릴게요 :)"}
           </p>
           <form
             id="bottomOfPage"

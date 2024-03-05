@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-
+import { Analytics } from "@vercel/analytics/react";
 export const metadata: Metadata = {
   title: "또북 - 아이들이 주인공인 교실",
   description: "아이들이 스스로 만드는 맞춤 영어 학습 콘텐츠",
@@ -22,7 +22,10 @@ export default function RootLayout({
           content="q_QZwRBqOc5bMH0wr7j5DSXycL8bOxmN8zeZmYN5yt4"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
