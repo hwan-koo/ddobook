@@ -59,7 +59,7 @@ export default function Home() {
           onClick={scrollToBottom}
         >
           <span className="text-white font-bold text-[8px] sm:text-base md:text-lg lg:text-xl xl:text-2xl">
-            도입 문의
+            문의하기
           </span>
         </button>
       </div>
@@ -171,7 +171,7 @@ export default function Home() {
             />
           </div>
           <p className="mt-8 sm:mt-12 md:mt-16 lg:mt-20 xl:mt-32 2xl:mt-40 text-[8px] sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl  whitespace-pre text-center">
-            {"이메일을 남겨주시면 또북 컨설턴트가 빠르게 답장해드릴게요 :)"}
+            {"이메일을 남겨주시면 또북 담당자가 빠르게 답장해드릴게요 :)"}
           </p>
           <form
             id="bottomOfPage"
@@ -191,7 +191,7 @@ export default function Home() {
               type="submit"
               className="mt-4 sm:mt-10 w-[12.5%] aspect-[3/1] bg-[#347CF8] text-white font-bold text-[8px] sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl rounded-[40px]"
             >
-              도입 문의
+              문의하기
             </button>
           </form>
           <p className="mt-10 mb-4 text-[8px] sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl  whitespace-pre text-center text-gray-400">
